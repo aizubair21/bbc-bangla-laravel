@@ -16,3 +16,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('dashboard');
 });
+
+//login 
+Route::view('/login', 'back_end.component.login');
+
+//register
+Route::view('/register', 'back_end.component.register');
+
+
+//post 
+route::view('/post.create','back_end.posts.add_new')->name('post.create');
