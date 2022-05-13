@@ -14,15 +14,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('dashboard');
+    return view('welcome');
 });
 
-//login 
-Route::view('/login', 'back_end.component.login');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
 
-//register
-Route::view('/register', 'back_end.component.register');
+require __DIR__.'/auth.php';
 
 
-//post 
-route::view('/post.create','back_end.posts.add_new')->name('post.create');
+//create post
+Route::view('/post.create', 'back_end.post.add_new');

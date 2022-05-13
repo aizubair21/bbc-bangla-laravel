@@ -17,46 +17,90 @@
 <body class="hold-transition register-page">
 <div class="register-box">
   <div class="register-logo">
-    <a href="admin_lte/index2.html"><b>Admin</b>LTE</a>
+    <a href="admin_lte/index2.html"><b>BBC-Bangla</b></a>
   </div>
 
   <div class="card">
     <div class="card-body register-card-body">
-      <p class="login-box-msg">Register a new membership</p>
+      <p class="login-box-msg">Register as a new reader</p>
 
-      <form action="admin_lte/index.html" method="post">
-        <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Full name">
+      <form action="{{route('register')}}" method="post" enctype="multipart/form-data">
+        @csrf 
+        <style>
+          input {
+            width:100%;
+          }
+        </style>
+        <div class="input-group">
+          <input type="text" class=" form-input @error('name') is-invalid @enderror form-control" value="{{ old('name') }}" name="name"  placeholder="Full name" autofocus autocomplete="0">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>
             </div>
           </div>
         </div>
-        <div class="input-group mb-3">
-          <input type="email" class="form-control" placeholder="Email">
+        <div class="mb-3">
+          @error('name')
+            <strong class="text text-danger"> {{ $message }}</strong>
+          @enderror
+        </div>
+
+        <div class="input-group">
+          <input type="text" class="form-control @error('user_name') is-invalid @enderror" value="{{ old('user_name') }}" name="user_name"  placeholder="User Name" autocomplete="off">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+        </div>
+        <div class="mb-3">
+          @error('user_name')
+            <strong class="text text-danger"> {{ $message }}</strong>
+          @enderror
+        </div>
+
+        <div class="input-group">
+          <input type="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" name="email" placeholder="Email" autocomplete="off">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
             </div>
           </div>
         </div>
-        <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Password">
+        <div class="mb-3">
+          @error('email')
+            <strong class="text text-danger"> {{ $message }}</strong>
+          @enderror
+        </div>
+
+        <div class="input-group">
+          <input type="password" class="form-control @error('password') is-invalid @enderror"  name="password"  placeholder="Password" autocomplete="off">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
             </div>
           </div>
         </div>
-        <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Retype password">
+        <div class="mb-3">
+          @error('password')
+            <strong class="text text-danger"> {{ $message }}</strong>
+          @enderror
+        </div>
+
+        <div class="input-group">
+          <input type="password" class="form-control"  placeholder="Retype password" name="password_confirmation">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
             </div>
           </div>
         </div>
+        <div class="mb-3">
+          @error('password_confirmation')
+            <strong class="text text-danger"> {{ $message }}</strong>
+          @enderror
+        </div>
+
         <div class="row">
           <div class="col-8">
             <div class="icheck-primary">

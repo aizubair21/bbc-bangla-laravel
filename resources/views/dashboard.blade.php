@@ -1,7 +1,6 @@
-@extends('back_end.app');
-
+@extends('back_end.app')
 @section('content')
-    <div class="content-wrapper"> 
-        This is my dashboard
-    </div>
+    <div class="content-wrapper">
+        <div class="alert alert-success">Your are Log in now</div>
+    </div>    
 @endsection
