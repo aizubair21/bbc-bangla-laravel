@@ -1,0 +1,592 @@
+@media (min-width: 360px ) and (max-width: 576px) {
+    .container {
+        width: 100%;
+    }
+    
+    .common-heading h2::after{
+        position:absolute;
+        content:"";
+        bottom: 10px; 
+        left: 185px;
+      
+    }
+    
+    #top-news .row a{
+        display: block;
+    }
+    #top-news .row a img {
+        width: 100%;
+        margin: 0;
+    }
+    #top-news .row a div h2 {
+        font-size: 25px;
+        font-weight: normal;
+        padding: 0;
+        letter-spacing: normal;
+        
+    }
+    #top-news .row a div p {
+        letter-spacing: normal;
+        font-size: 15px;
+        padding: 0;
+        line-height: normal;
+      
+    }
+    
+    #top-news-two h2 {
+        margin: 0;
+        width: 100%;
+        letter-spacing: normal;
+    }
+    
+    #corona-virus img{
+        width: 100%;
+        height: auto;
+    }
+    #corona-virus a h2 {
+        width: 100%;
+    }
+    
+    
+    #audio .row a {
+        display: block;
+    }
+    #audio .row a div {
+        width: 100%;
+    }
+    #audio .row a div h2{
+        font-weight: normal;
+        font-size: 25px;
+        letter-spacing: normal;
+        text-decoration: none;
+        width: 100%;
+    }
+    #audio .row a div p {
+        font-size: 15px;
+    }
+    
+    #letter a div h2 {
+        font-weight: normal;
+        font-size: 25px;
+        letter-spacing: normal;
+        text-decoration: none;
+        width: 100%;
+    }
+    #letter a div p {
+        font-size: 15px;
+    }
+    
+    
+    #report a div h2{
+        font-weight: normal;
+        font-size: 25px;
+        letter-spacing: normal;
+        text-decoration: none;
+        width: 100%;
+    }
+    #report a div p {
+        font-size: 15px;
+    }
+    
+    #history a div h2 {
+        font-weight: normal;
+        font-size: 25px;
+        letter-spacing: normal;
+        text-decoration: none;
+    }
+    #history a div h2 p {
+        font-size: 15px;
+    }
+    #photo a {
+        display: block;
+    }
+    
+    #photo a div h2 {
+        font-weight: normal;
+        font-size: 25px;
+        letter-spacing: normal;
+        text-decoration: none;
+    }
+    #photo a div p {
+        font-size: 15px;
+    }
+    #photo a img{
+        width: 100%;
+    }
+    #photo a div {
+        margin: 0;
+    }
+    
+    
+    #archive a div h2 {
+        font-weight: normal;
+        font-size: 25px;
+        letter-spacing: normal;
+        text-decoration: none;
+    }
+    #archive a div p {
+        font-size: 15px;
+    }
+    #archive a {
+        display: block;
+    }
+    #archive a img {
+        width: 100%;
+    }
+    
+    
+}
+
+@media only screen and (max-width: 360px){
+    .container {
+        width: 100%;
+        margin: 0;
+       
+    }
+    .common-heading h2::after{
+        position:absolute;
+        content:"_______";
+        bottom: 10px; 
+        left: 185px;
+      
+    }
+
+    #nav {
+        width: 100%;
+        border: 1px solid;
+    }
+    #nav .nav-body .top, .bottom{
+        margin-left: 0;
+    }   
+
+    #top-news {
+        /* border: 1px solid; */
+        padding: 0;
+        margin: 0;
+    }
+    #top-news .top img{
+        width: 355px;
+        /* border: 1px solid; */
+    }
+
+
+
+    #top-news .top{
+        width: 100%;
+        display: block;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        
+    }
+
+
+    #top-news .top p{
+        margin: 0;
+        padding: 0;
+        text-align: left;
+        font-size: .9rem;
+        width: 83%;
+        /* border: 1px solid; */
+       
+    }
+    #top-news .top h2{
+        font-size: 1.5rem;
+        padding: 0;
+        width: 100%;
+        word-spacing: normal;
+        color: rgba(0,0,0, .8);
+    }
+
+
+
+
+
+
+    #top-news-two .row{
+        display: block;
+        padding: 0;
+        
+    }
+    #top-news-two .row h2{
+        font-size: 1rem;
+        line-height: normal;
+        align-self: flex-start;
+        width: 100%;
+        color: rgba(0,0,0, .8);
+        /* border: 1px solid; */
+    }
+
+    
+    #top-news-two a{
+        width: 98%;
+        display:flex;
+        align-content: flex-start;
+        /* border: 1px solid; */
+        margin: 0;
+    }
+
+
+    #top-news-two img{
+       width: 0%;
+    }
+
+
+
+
+
+    #corona-virus .row{
+        display: block;
+    }
+    #corona-virus a{
+        width: 95%;
+        display: flex;
+        /* border: 1px solid; */
+        margin: 0;
+    }
+    #corona-virus a h2{
+        font-size: 1rem;
+        width: 100%;
+        color:rgba(0,0,0, .8);
+    }
+    #corona-virus img{
+        width: 0%;
+        height: auto;
+    }
+
+
+
+
+    #audio a{
+        width: 95%;
+        /* border: 1px solid; */
+        display: block;
+    }
+    #audio a h2{
+        width: 100%;
+        font-size: 1rem;
+        font-family: 'sonar-bangla';
+        letter-spacing: 1px;
+        color: rgba(0,0,0, .8);
+       
+    }
+    #audio a p {
+        font-size: .9rem;
+        text-align: justify;
+    }
+
+    #audio .row2{
+        display: block;
+    }
+    #audio .row2 a {
+        display: flex;
+        width: 90%;
+        /* border: 1px solid black; */
+    }
+    #audio .row2 a h2 {
+        font-size: 1rem;
+        width: 100%;
+    }
+    #audio .row2 video{
+        width: 0%;
+        height: auto;
+    }
+
+
+
+
+    #letter a, #report a, #history a{
+        display: block;
+        width: 95%;
+    }
+    #letter a h2, #report a h2, #history a h2 {
+        font-size: 1.3rem;
+        color:rgba(0,0,0, .8);
+        font-weight: 400;
+        text-decoration: none;
+    }
+    #letter a p, #report a p, #history a p {
+        font-size: .9rem;
+        color:rgba(0,0,0, .8);
+        font-weight: 400;
+    }
+
+
+
+
+
+    #other .row{
+        display: flex;
+    }
+    #other a{
+        width: 95%;
+        color: rgba(0,0,0, .8);
+        font-size: 1rem;
+        font-weight: 400;
+        /* border : 1px solid; */
+        display: flex;
+        flex-direction: row;
+    }
+    #other a h2 {
+        font-size: 1rem;
+        color: rgba(0,0,0, .8);
+    }
+    #other a img{
+        width: 0%;
+    }
+
+
+
+    #photo .row, #archive .row{
+        display: block;
+    }
+    #photo a, #archive a{
+        display: block;
+        width: 95%;
+    }
+    #photo a h2, #archive a h2 {
+        font-size: 1.3rem;
+        font-weight: 400;
+        color: rgba(0,0,0, .8);
+    }
+    #photo a p, #archive a p {
+        font-size: .9rem;
+        font-weight: 400;
+        color: rgba(0,0,0, .8);
+    }
+
+
+
+    #top_footer {
+        width: 100%;
+    }
+    #top_footer .row{
+        margin: 0;
+    }
+    #top_footer a p{
+        padding: 5px;
+    }
+    #footer .row{
+        margin: 0 5px ;
+        padding: 0;
+        font-size: 15px;
+    }
+    #footer{
+        width: 100%;
+    }
+    #footer a{
+        font-size: 12px;
+        padding: 5px;
+    }
+    #footer span{
+        font-size: 12px;
+    }
+    #footer .row:nth-child(2) a{
+        padding: 5px 0;
+    }
+}
+
+
+/* // Small devices (landscape phones, 576px and up) */
+
+@media (min-width: 576px) { 
+    /* #top-news .row a{
+        display: block;
+        padding: 0;
+        margin: 0;
+    } */
+    .common-heading h2::after{
+        position:absolute;
+        content:"_____________________________";
+        bottom: 10px; 
+        left: 185px;
+      
+    }
+    .container {
+        max-width: 100% !important;
+        margin: 0;
+    }
+    #top-news .row a {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    #top-news .row a div h2 {
+        padding: 0;
+        margin: 0;
+        width: auto;
+        text-align: left;
+        font-size: 30px;
+        line-height: normal;
+    }
+    #top-news .row a p {
+        padding: 0;
+        font-size: 15px;
+        letter-spacing:0;
+        line-height: normal;
+    }
+    #top-news-two .row a {
+     display: flex;
+     margin: 2.5px 0;
+     padding: 0;
+    }
+    #top-news-two .row a div {
+        margin-left: 10px;
+    }
+    #top-news-two h2{
+        margin: 0;
+        width: auto;
+        font-weight: 600;
+    }
+    
+    #corona-virus .row a {
+        display: flex;
+        
+    }
+    #corona-virus .row a div h2 {
+        font-weight: 600;
+        width: auto;
+    }
+    #corona-virus .row a div {
+        margin-left: 10px;
+    }
+    #corona-virus img{
+        height: auto;
+    }
+
+    #audio a {
+        display: block;
+    }
+
+    #audio a div {
+        width: 100%;
+    }
+
+    #audio .row2 a {
+        display: flex;
+    }
+    #audio .row2 a video {
+        width: 200px;
+    }
+
+    #photo a {
+        display: block;
+    }
+    #photo a img{
+        width: 100%;
+    }
+    #archive .row a {
+        display: block;
+    }
+    #archive .row a img{
+        width: 100%;
+    }
+}
+
+/* // Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .container {
+        width: 100%;
+    }
+
+    #top-news-two .row a {
+        display: flex;
+        margin: 10px 0;
+    }
+
+    #top-news-two .row a div {
+        margin-left:10px ;
+    }
+
+    #top-news-two h2{
+        margin: 0;
+        width:auto;
+        font-weight: 600;
+    }
+
+    #audio .row2 a {
+        display: flex;
+    }
+}
+
+
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    #top-news .row a {
+        display: flex;
+    }
+    
+    #top-news .row a div {
+        margin-left: 10px;
+    }
+
+    #top-news-two .row a {
+        display: block;
+       
+    }
+
+    #top-news-two h2{
+        margin: 0;
+        width:230px;
+        font-weight: normal;
+        line-height: normal;
+    }
+
+    #top-news-two .row a div {
+        margin-left: 0px ;
+    }
+    #corona-virus .row a {
+        display: block;
+        
+    }
+    #corona-virus .row a div h2 {
+        font-weight: normal;
+        width: 230px;
+    }
+    #corona-virus .row a div {
+        margin-left: 0px;
+    }
+    #corona-virus img {
+        height: 150px;
+    }
+
+    #audio .row a {
+        display: flex;
+        justify-content: space-between;
+    }
+    #audio .row2 a {
+        display: block;
+    }
+
+    #letter a {
+        display: flex;
+        justify-content: space-between;
+    }
+    #report a{
+        display: flex;
+        justify-content: space-between;
+    }
+    #history a {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    #photo a {
+        display: flex;
+        
+    }
+    #photo a img {
+        width:50%;
+    }
+    #archive .row a {
+        display: flex;
+        justify-content: space-between;
+    }
+
+ }
+
+// X-Large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { ... }
+
+// XX-Large devices (larger desktops, 1400px and up)
+@media (min-width: 1400px) { ... }
