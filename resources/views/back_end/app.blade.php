@@ -39,8 +39,9 @@
     
     @include('back_end.component.top_header')
     @include('back_end.component.side_bar')
-    
-    @yield('content')
+    <div class="content-wrapper">
+      @yield('content')
+    </div>
   </div>
     <!-- jQuery -->
   <script src="admin_lte/plugins/jquery/jquery.min.js"></script>

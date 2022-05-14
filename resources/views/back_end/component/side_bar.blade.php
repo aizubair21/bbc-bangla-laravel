@@ -84,13 +84,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href=" {{ route('post.add') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Add New Post</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="admin_lte/pages/layout/top-nav-sidebar.html" class="nav-link">
+                <a href="{{ route('post.index') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>All Post</p>
                 </a>
@@ -137,24 +137,24 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-chart-pie"></i>
               <p>
-                Charts
+                Category
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="admin_lte/pages/charts/chartjs.html" class="nav-link">
+                <a href="{{ route('category.index') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>ChartJS</p>
+                  <p>All category</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="admin_lte/pages/charts/flot.html" class="nav-link">
+                <a href=" {{ route('category.add') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Flot</p>
+                  <p>Add category</p>
                 </a>
               </li>
-              <li class="nav-item">
+              {{-- <li class="nav-item">
                 <a href="admin_lte/pages/charts/inline.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Inline</p>
@@ -165,7 +165,7 @@
                   <i class="far fa-circle nav-icon"></i>
                   <p>uPlot</p>
                 </a>
-              </li>
+              </li> --}}
             </ul>
           </li>
           <li class="nav-item">

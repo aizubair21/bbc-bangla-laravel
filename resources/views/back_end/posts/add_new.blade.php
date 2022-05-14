@@ -1,8 +1,6 @@
 @extends('back_end.app')
 @section('content')
-<div class="content-wrapper"> 
-    <div class="container">
-        post
-    </div>
-</div>
+    <div>
+        <div class="alert alert-success">Your are able to post now</div>
+    </div>   
 @endsection

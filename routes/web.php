@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\posts\postController;
+use App\Http\Controllers\category\categoryController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -24,5 +27,23 @@ Route::get('/dashboard', function () {
 require __DIR__.'/auth.php';
 
 
-//create post
-Route::view('/post.create', 'back_end.post.add_new');
+
+
+//create method
+Route::get('/add-post', function() {
+    return view('back_end.posts.add_new ');
+})->name('post.add');
+
+Route::get('/add-category', function() {
+    return view('back_end.category.add');
+})->name('category.add');
+
+
+
+
+
+//post resource controller
+Route::resource('post',postController::class);
+
+//category 
+Route::resource('category', categoryController::class);
