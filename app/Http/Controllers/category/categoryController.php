@@ -18,11 +18,7 @@ class categoryController extends Controller
     public function index()
     {
         $category = category::get();
-            dd($category);
-        foreach ($category as $key => $value) {
-            dd($value->name->post->titile);
-        }
-        //return view('back_end.category.index', compact('category'));
+        return view('back_end.category.index', compact('category'));
     }
 
     /**

@@ -147,7 +147,7 @@
                   <i class="far fa-circle nav-icon"></i>
                   <p>All category</p>
                 </a>
-              </li>
+              </li> 
               <li class="nav-item">
                 <a href=" {{ route('category.add') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>

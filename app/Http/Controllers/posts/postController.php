@@ -4,7 +4,8 @@ namespace App\Http\Controllers\posts;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use App\Models\post;
+use App\Models\category;
 
 class postController extends Controller
 {
@@ -15,9 +16,9 @@ class postController extends Controller
      */
     public function index()
     {
+        $post = post::get();
         //all post
-
-        return view('back_end.posts.allPost');
+        return view('back_end.posts.allPost', compact('post'));
 
     }
 
@@ -27,8 +28,9 @@ class postController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-       // return view('back_end.posts.add_new');
+    {   
+        $category = category::get();
+        return view('back_end.posts.add_new', compact('category'));
     }
 
     /**
@@ -39,7 +41,42 @@ class postController extends Controller
      */
     public function store(Request $request)
     {
+        $request->image->store('uploads', 'public');
+        // $request->validate([
+        //     'title' => ['required'],
+        //     'description' => ['required'],
+        //     'category' => ['required'],
+        // ]);
+
+        // $post = new post();
+        // $post->title = $request->title;
+        // $post->description = $request->description;
+        // $post->image_caption = $request->image_caption;
+        // $post->image = $request->iamge;
+        
+
+        // $post->save();
+        //     $request('image')->store(
+        //     'posts/uploads',
+        //     'public');
+
+
+        // return redirect()->back()->with(['status'=>'Post Added !']);
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
         //
+
+        post::where('id',$id)->delete();
+
+        return redirect()->back();
     }
 
     /**
@@ -51,8 +88,12 @@ class postController extends Controller
     public function show($id)
     {
         //
-    }
+      
 
+        
+        
+    }
+    
     /**
      * Show the form for editing the specified resource.
      *
@@ -60,8 +101,11 @@ class postController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        //
+    {  
+        $category = category::get();
+        $post = post::where('id', $id)->get();
+        return view('back_end.posts.test');
+        
     }
 
     /**
@@ -74,16 +118,8 @@ class postController extends Controller
     public function update(Request $request, $id)
     {
         //
+
+        return "update method";
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

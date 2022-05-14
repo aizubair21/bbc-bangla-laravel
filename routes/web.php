@@ -3,7 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\posts\postController;
 use App\Http\Controllers\category\categoryController;
-
+use App\Models\category;
+use App\Models\post;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,7 +32,10 @@ require __DIR__.'/auth.php';
 
 //create method
 Route::get('/add-post', function() {
-    return view('back_end.posts.add_new ');
+    
+    $category = category::get();
+
+    return view('back_end.posts.add_new', compact('category'));
 })->name('post.add');
 
 Route::get('/add-category', function() {
@@ -39,6 +43,20 @@ Route::get('/add-category', function() {
 })->name('category.add');
 
 
+//show method
+Route::get('/post/edit', function($id) {
+
+    $category = category::get();
+    $post = post::where('id', $id)->get();
+
+    return view('back_end.posts.edit', compact('category','post'));
+    
+})->name('post_edit');
+
+
+//post store
+//store resource not working
+Route::post('/post/store',[postController::class, 'post_store'])->name('post.store');
 
 
 

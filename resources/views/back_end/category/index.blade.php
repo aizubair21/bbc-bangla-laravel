@@ -7,7 +7,7 @@
           <div class="container-fluid">
             <div class="row mb-2">
               <div class="col-sm-6">
-                <h1>DataTables</h1>
+                <h1>Category</h1>
               </div>
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
@@ -49,7 +49,7 @@
                           <td> {{ $item->name }}</td>
                           <td> {{ $item->slug }}</td>
                           <td> {{ $item->author_name }}</td>
-                          <td> {{  }}</td>
+                          <td></td>
                           <td>
                             <a href="#" class="btn btn-danger">
                               <div class="fas fa-trash" ></div>
@@ -67,7 +67,7 @@
                         <th>{{ $category->count()}}</th>
                         <th>Browser</th>
                         <th>Platform(s)</th>
-                        <th>{{ }}</th>
+                        <th></th>
                         <th>CSS grade</th>
                       </tr>
                       </tfoot>
