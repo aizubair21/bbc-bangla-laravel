@@ -4,6 +4,9 @@ namespace App\Http\Controllers\category;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\category;
+use App\Models\post;
+use Illuminate\Support\Facades\Auth;
 
 class categoryController extends Controller
 {
@@ -14,7 +17,12 @@ class categoryController extends Controller
      */
     public function index()
     {
-        return view('back_end.category.index');
+        $category = category::get();
+            dd($category);
+        foreach ($category as $key => $value) {
+            dd($value->name->post->titile);
+        }
+        //return view('back_end.category.index', compact('category'));
     }
 
     /**
@@ -35,7 +43,21 @@ class categoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name'=>['required','string'],
+            'slug'=>['required'],
+        ]);
+
+        $category = new category();
+        $category->name = $request->name;
+        $category->slug = $request->slug;
+        $category->author_name = Auth::user()->user_name;
+        $category->save();
+
+        return redirect()->back()->with(['status'=>'Category Added !']);
+
+
+
     }
 
     /**

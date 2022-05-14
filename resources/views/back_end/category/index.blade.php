@@ -36,36 +36,38 @@
                         <th>Sl </th>
                         <th>Name</th>
                         <th>Slug</th>
+                        <th>Created by</th>
                         <th>Post Count</th>
                         <th>Action</th>
                       </tr>
                       </thead>
 
                       <tbody>
-                      <tr>
-                        <td>Trident</td>
-                        <td>Internet
-                          Explorer 4.0
-                        </td>
-                        <td>Win 95+</td>
-                        <td> 4</td>
-                        <td>
+                      @foreach ($category as $key => $item)
+                        <tr>
+                          <td> {{ ++$key }}</td>
+                          <td> {{ $item->name }}</td>
+                          <td> {{ $item->slug }}</td>
+                          <td> {{ $item->author_name }}</td>
+                          <td> {{  }}</td>
+                          <td>
                             <a href="#" class="btn btn-danger">
-                                <div class="fas fa-trash" ></div>
+                              <div class="fas fa-trash" ></div>
                             </a>
                             <a href="#" class="btn btn-primary">
-                                <div class="fas fa-pen"></div>
+                              <div class="fas fa-pen"></div>
                             </a>
-                        </td>
-                      </tr>
+                          </td>
+                        </tr>
+                      @endforeach
                       </tbody>
 
                       <tfoot>
                       <tr>
-                        <th>Rendering engine</th>
+                        <th>{{ $category->count()}}</th>
                         <th>Browser</th>
                         <th>Platform(s)</th>
-                        <th>Engine version</th>
+                        <th>{{ }}</th>
                         <th>CSS grade</th>
                       </tr>
                       </tfoot>
