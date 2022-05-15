@@ -15,6 +15,7 @@ class postController extends Controller
     public function index()
     {
         $post = post::get();
+        //dd($post);
         return view('back_end.posts.index', compact('post'));
     }
 
@@ -54,11 +55,12 @@ class postController extends Controller
         $post->title = $request->title;
         $post->description = $request->description;
         $post->image_caption = $request->caption;
-        $post->image = $request->image;
+        $post->image = $_FILES['image']['name'];
         $post->category = $request->category;
         $post->author = Auth::id();
         $post->save();
 
+        move_uploaded_file($_FILES["image"]["tmp_name"], public_path('images/'). basename($_FILES['image']['name']));
 
         return redirect()->route('post.index')->with(['status'=>'New Post Added !']);
     }
@@ -76,11 +78,16 @@ class postController extends Controller
         post::where('id',$post)->update([
             'title'=>$request->title,
             'description'=>$request->description,
-            'image'=>$request->image,
+            'image'=>$_FILES['image']['name'],
             'image_caption' => $request->caption,
             'category' => $request->category,
             'author' => Auth::id(),
         ]);
+
+        move_uploaded_file($_FILES["image"]["tmp_name"], public_path('images/'). basename($_FILES['image']['name']));
+
+        // $request->image->storeAs('images', );
+        // storage/app/images/file.png
 
         return redirect()->route('post.index')->with(['status'=>'Successfuly Updated !']);
     }

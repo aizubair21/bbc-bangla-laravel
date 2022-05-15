@@ -2,8 +2,10 @@
 
 @extends('front_end.app')
 @section('content')
-    <section id="top-news">
-        <div class="container">
+@foreach ($post as $posts)
+    
+<section id="top-news">
+    <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-xm-12 col-md-12 col-lg-12">
                     <a href="#" class="top">
@@ -23,7 +25,7 @@
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-3 col-xm-12">
                     <a href="#">
-                        <img class="col-xm-4"  src="images/topnews1.jpg" alt="BBC" class="col-xm-3">
+                        <img class="col-xm-4"  src="images/{{$posts->image}}" alt="BBC" class="col-xm-3">
                         <div class="col-sm-8"> 
                             <h2>বাংলাদেশে  এবার জেলা উপজেলার টিকাকেন্দ্রে উদগ্রীব মানুষের ভীড়</h2>
                             <span>২ ঘন্টা আগে</span>
@@ -72,7 +74,7 @@
                 <div class="col-sm-12 col-md-12 col-lg-3 col-xm-12">
                     <a href="#">
                         <img class="col-xm-4" src="images/topnews6.jpg" alt="BBC">
-                    <div class="col-sm-8">
+                        <div class="col-sm-8">
                             <h2>আমেরিকানদের বিদায়ের পর আফগানিস্তানের জীবন কেমন হবে ? </h2>
                             <span>১৩ জুলাই ২০২১</span>
                     </div>
@@ -110,13 +112,13 @@
                 <div class="col-sm-12 col-md-12 col-lg-3 col-xm-12">
                     <a  href="#">
                         <img class="col-xm-4" src="images/covid1.jpg" alt="BBC">
-                    <div class="col-sm-8">
+                        <div class="col-sm-8">
                             <h2>কভিডের কারণে শরীলে অক্সিজেন কমে গেলে যা করতে পারেন</h2>
                             <span>২৩ জুন ২০২১</span>
                     </div>
-                    </a>
-                </div>
-                <div class="col-sm-12 col-md-12 col-lg-3 col-xm-12">
+                </a>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-3 col-xm-12">
                     <a href="#"> 
                         <img class="col-xm-4" src="images/covid2.jpg" alt="BBC">
                         <div class="col-sm-8"> 
@@ -140,7 +142,7 @@
                     <div class="col-sm-8">
                             <h2>গুরতর করোনা রুগিদের যে ১১টি পরীক্ষা করতে বলেন চিকিৎসকেরা </h2>
                             <span>৯ মে ২০২১</span>
-                    </div>
+                        </div>
                     </a>
                 </div>
                 
@@ -170,12 +172,12 @@
             <div class="row2">
                 <div class="col-sm-12 col-md-12 col-lg-3 col-xm-12">
                     <a href="#"> 
-
+                        
                         <video controls class="col-xm-4">
                             <source src="" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
-
+                        
                         <div>  
                             <h2>বাথটাব, ব্যালকনি, রান্নাঘর - অলিম্পিক অ্যাথলদের প্রশিক্ষণের জায়গা</h2>
                             <p>করোন লকডাউনে ঘরের মাধ্যে বসে তোমাদের সবার মেজাজ খারাপ । কিন্তু, অলিম্পিকের অ্যাথলেটের কথা একবার ভাবুন । টোকিও অলিম্পিকে জয়লাভের জন্য যাদের কঠোর অনুশীলন হচেছ ? আর সেটা করতে হচ্ছে লকডাউনের নানা সমস্যঅর মধ্যে ?</p>
@@ -186,14 +188,30 @@
                 </div>
                 <div class="col-sm-12 col-md-12 col-lg-3 col-xm-12">
                     <a href="#"> 
-
+                        
                         <video controls class="col-xm-4">
                             <source src="" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
-
+                        
                         <div>
                             <h2>বাথটাব, ব্যালকনি, রান্নাঘর - অলিম্পিক অ্যাথলদের প্রশিক্ষণের জায়গা</h2>
+                            <p>করোন লকডাউনে ঘরের মাধ্যে বসে তোমাদের সবার মেজাজ খারাপ । কিন্তু, অলিম্পিকের অ্যাথলেটের কথা একবার ভাবুন । টোকিও অলিম্পিকে জয়লাভের জন্য যাদের কঠোর অনুশীলন হচেছ ? আর সেটা করতে হচ্ছে লকডাউনের নানা সমস্যঅর মধ্যে ?</p>
+                            <span>১৩ জুলাই ২০২১</span>
+                        </div>
+
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-3 col-xm-12">
+                    <a href="#"> 
+
+                        <video controls class="col-xm-4">
+                            <source src="" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            
+                            <div>
+                                <h2>বাথটাব, ব্যালকনি, রান্নাঘর - অলিম্পিক অ্যাথলদের প্রশিক্ষণের জায়গা</h2>
                             <p>করোন লকডাউনে ঘরের মাধ্যে বসে তোমাদের সবার মেজাজ খারাপ । কিন্তু, অলিম্পিকের অ্যাথলেটের কথা একবার ভাবুন । টোকিও অলিম্পিকে জয়লাভের জন্য যাদের কঠোর অনুশীলন হচেছ ? আর সেটা করতে হচ্ছে লকডাউনের নানা সমস্যঅর মধ্যে ?</p>
                             <span>১৩ জুলাই ২০২১</span>
                         </div>
@@ -213,26 +231,10 @@
                             <p>করোন লকডাউনে ঘরের মাধ্যে বসে তোমাদের সবার মেজাজ খারাপ । কিন্তু, অলিম্পিকের অ্যাথলেটের কথা একবার ভাবুন । টোকিও অলিম্পিকে জয়লাভের জন্য যাদের কঠোর অনুশীলন হচেছ ? আর সেটা করতে হচ্ছে লকডাউনের নানা সমস্যঅর মধ্যে ?</p>
                             <span>১৩ জুলাই ২০২১</span>
                         </div>
-
+                        
                     </a>
                 </div>
-                <div class="col-sm-12 col-md-12 col-lg-3 col-xm-12">
-                    <a href="#"> 
-
-                        <video controls class="col-xm-4">
-                            <source src="" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-
-                        <div>
-                            <h2>বাথটাব, ব্যালকনি, রান্নাঘর - অলিম্পিক অ্যাথলদের প্রশিক্ষণের জায়গা</h2>
-                            <p>করোন লকডাউনে ঘরের মাধ্যে বসে তোমাদের সবার মেজাজ খারাপ । কিন্তু, অলিম্পিকের অ্যাথলেটের কথা একবার ভাবুন । টোকিও অলিম্পিকে জয়লাভের জন্য যাদের কঠোর অনুশীলন হচেছ ? আর সেটা করতে হচ্ছে লকডাউনের নানা সমস্যঅর মধ্যে ?</p>
-                            <span>১৩ জুলাই ২০২১</span>
-                        </div>
-
-                    </a>
-                </div>
-
+                
             </div>
         </div>
     </section>
@@ -283,7 +285,7 @@
             </a>
         </div>
     </section>
-
+    
     <section id="other"> 
         <div class="container">
             <div class="common-heading">
@@ -306,7 +308,7 @@
                             <h2>মাস্ক আর সামাজিক দূরত্বের মধ্য দিয়ে আরেকটি হজ</h2>
                             <span>১৮ জুলাই ২০২১</span>
                     </div>
-                    </a>
+                </a>
                 </div>
                 <div class="col-sm-6 col-md-4 col-lg-3 col-xm-12">
                     <a href="#">
@@ -546,4 +548,5 @@
             <a href="#"> বাইরের লিংক সম্পর্কে বিবিসির দৃষ্টিভঙ্গি পড়ুন |</a>
         </div>
     </section>
+@endforeach
 @endsection

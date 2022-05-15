@@ -55,14 +55,16 @@
                   <input type="hidden" name="id" value="{{ $item->id}}">
                     <tr>
                       <td> {{ ++$key }}</td>
-                      <td> {{ $item->title }}</td>
-                      <td> {{ 
+                      <td class="p-2"> {{ $item->title }}</td>
+                      <td class="p-2"> {{ 
                         
                         $item->description
                         
                         }}</td>
                       <td> {{ $item->category }}</td>
-                      <td> {{ $item->iamge }}</td>
+                      <td> 
+                        <img height="50" width="50" src="images/{{ $item->image }}" alt="Not Found !">
+                      </td>
                       <td> {{ $item->image_caption }}</td>
                       <td>
                        <div class="d-flex justify-content-evenly align-items-center">

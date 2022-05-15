@@ -5,7 +5,9 @@ use App\Http\Controllers\posts\postController;
 use App\Http\Controllers\category\categoryController;
 use App\Models\category;
 use App\Models\post;
-
+use League\CommonMark\Extension\CommonMark\Node\Inline\Image;
+use Illuminate\Support\Facades\Storage;
+use Symfony\Component\HttpFoundation\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,7 +20,8 @@ use App\Models\post;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $post = post::get();
+    return view('welcome', compact('post'));
 });
 
 Route::get('/dashboard', function () {
@@ -45,3 +48,13 @@ Route::resource('category', categoryController::class);
 Route::get('/test', function() {
     return view('back_end.posts.test');
 });
+
+Route::post('/image_test', function(Request $request) {
+
+    if (move_uploaded_file($_FILES["image"]["tmp_name"], public_path('images/'). basename($_FILES['image']['name']))){
+        echo "file uploded";
+      } else {
+        $_SESSION['alert'] = $_SESSION['image']['error'];
+        echo $_FILES['image']['error'];
+      }
+})->name('image_test');
