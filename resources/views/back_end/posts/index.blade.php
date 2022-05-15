@@ -5,6 +5,12 @@
     <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
+          @if(session('status'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ session('status') }}
+                <button type="button" class="btn-close btn-sm" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+          @endif
           <div class="col-sm-6">
             <h1>Posts</h1>
           </div>
@@ -18,12 +24,7 @@
       </div><!-- /.container-fluid -->
     </section>
 
-    @if (session('status'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            {{ session('status') }}
-            <button type="button" class="btn-close btn-sm" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    @endif
+  
 
     <!-- Main content -->
     <section class="content">
@@ -51,6 +52,7 @@
 
                   <tbody>
                   @foreach ($post as $key => $item)
+                  <input type="hidden" name="id" value="{{ $item->id}}">
                     <tr>
                       <td> {{ ++$key }}</td>
                       <td> {{ $item->title }}</td>
@@ -61,14 +63,17 @@
                         }}</td>
                       <td> {{ $item->category }}</td>
                       <td> {{ $item->iamge }}</td>
-                      <td> {{ $item->iamge_caption }}</td>
+                      <td> {{ $item->image_caption }}</td>
                       <td>
                        <div class="d-flex justify-content-evenly align-items-center">
-                          {{-- <form action="{{ route('post.destroy', $item->id) }}" method="DELETE" style="margin: 0">
+                          {{-- <form action="{{ route('post.destroy', $item->id) }}" style="margin: 0">
                             @csrf
                               <button type="submit" class="btn btn-danger"><i class="fas fa-trash" ></i></button>
                            </form> --}}
-                          <a href="{{ route('post.destroy', $item->id) }}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                          <a href="{{ route('destroy', $item->id) }}" class="btn btn-danger">
+                            <i class="fas fa-trash"></i>
+                          </a>
+                          
                           <a href=" {{ route('post.edit', $item->id) }}" class="btn btn-primary">
                             <i class="fas fa-pen"></i>
                           </a>

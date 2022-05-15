@@ -13,7 +13,7 @@
                
                 <div class="card-body">
                     @foreach ($post as $posts)
-                    <form action="{{ route('post.update',$posts->id) }}" method="patch" enctype="multipart/form-data">
+                    <form action="{{ route('post.update',$posts->id) }}" method="post" enctype="multipart/form-data">
 
                         @csrf
                         <div class="section">
@@ -34,7 +34,7 @@
 
                         <div class="section">
                             <label for="description" class="form-label">Description :</label>
-                            <textarea class="table-input form-control" value="ani jani na" name="description" id="description" cols="30" rows="10" style="text-indent: 5px; padding:2px;" required></textarea>
+                            <input type="text" class="form-input form-control" value="{{$posts->description}}" name="description" id="description" style="text-indent: 5px; padding:2px;" required>
                         </div>
 
                         <div class="mb-3">

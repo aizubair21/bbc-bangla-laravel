@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\category;
 use App\Models\post;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redis;
 
 class postController extends Controller
 {
@@ -32,9 +33,9 @@ class postController extends Controller
     // }
 
     //edit method
-    public function edit($id)
-    {
-        $post = post::where('id', $id)->get();
+    public function edit(Request $request, $id)
+    {   
+        $post = post::where('id',1)->get();
         $category = category::get();
 
         return view('back_end.posts.edit', compact('post','category'));
@@ -52,7 +53,7 @@ class postController extends Controller
         $post = new post();
         $post->title = $request->title;
         $post->description = $request->description;
-        $post->image_caption = $request->iamge_caption;
+        $post->image_caption = $request->caption;
         $post->image = $request->image;
         $post->category = $request->category;
         $post->author = Auth::id();
@@ -64,7 +65,7 @@ class postController extends Controller
 
     //update method
     //whe i call update route it hit into "show" method. I don't know why  
-    public function show(Request $request, $id)
+    public function updated ( Request $request, $post)
     {
         $request->validate([
             'title'=>['required'],
@@ -72,13 +73,11 @@ class postController extends Controller
             'category'=>['required'],
         ]);
 
-        $post = new post();
-
-        $post->where('id', $id)->update([
+        post::where('id',$post)->update([
             'title'=>$request->title,
             'description'=>$request->description,
             'image'=>$request->image,
-            'image_caption' => $request->image_caption,
+            'image_caption' => $request->caption,
             'category' => $request->category,
             'author' => Auth::id(),
         ]);
@@ -89,8 +88,7 @@ class postController extends Controller
 
     //destroy methoed
     public function destroy($id)
-    {
-        dd($id);
+    {   
         post::where('id', $id)->delete();
         return redirect()->back()->with(['status'=>'Successfuly Deleted !']);
     }
