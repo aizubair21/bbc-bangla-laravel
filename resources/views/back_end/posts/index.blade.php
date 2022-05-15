@@ -18,6 +18,13 @@
       </div><!-- /.container-fluid -->
     </section>
 
+    @if (session('status'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session('status') }}
+            <button type="button" class="btn-close btn-sm" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
+
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
@@ -57,12 +64,12 @@
                       <td> {{ $item->iamge_caption }}</td>
                       <td>
                        <div class="d-flex justify-content-evenly align-items-center">
-                          <form action="{{ route('post.destroy', $item->id) }}" method="GET" style="margin: 0">
-                            @method('DELETE')
+                          {{-- <form action="{{ route('post.destroy', $item->id) }}" method="DELETE" style="margin: 0">
                             @csrf
                               <button type="submit" class="btn btn-danger"><i class="fas fa-trash" ></i></button>
-                           </form>
-                          <a href=" {{ route('post_edit', $item->id) }}" class="btn btn-primary">
+                           </form> --}}
+                          <a href="{{ route('post.destroy', $item->id) }}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                          <a href=" {{ route('post.edit', $item->id) }}" class="btn btn-primary">
                             <i class="fas fa-pen"></i>
                           </a>
                        </div>

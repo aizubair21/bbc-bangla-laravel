@@ -44,9 +44,9 @@
                                     <label  class="form-label" for="Category">Category :</label>
                                     <select name="category" id="catefory" class="form-control" required>
                                         <option value="0" >Select Your Ctegory</option>
-                                          @foreach ($category as $key => $item)
+                                        @foreach ($category as $key => $item)
                                             <option value="{{ $item->name }}">{{ $item->name }}</option>   
-                                          @endforeach
+                                        @endforeach
                                     </select>
                                 </div>
     

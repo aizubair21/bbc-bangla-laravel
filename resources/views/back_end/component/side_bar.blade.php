@@ -84,7 +84,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href=" {{ route('post.add') }}" class="nav-link">
+                <a href=" {{ route('post.create') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Add New Post</p>
                 </a>
@@ -149,7 +149,7 @@
                 </a>
               </li> 
               <li class="nav-item">
-                <a href=" {{ route('category.add') }}" class="nav-link">
+                <a href=" {{ route('category.create') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Add category</p>
                 </a>

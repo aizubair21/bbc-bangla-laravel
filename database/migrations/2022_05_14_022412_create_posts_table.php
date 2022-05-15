@@ -17,8 +17,9 @@ class CreatePostsTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->text('description');
-            $table->string('image');
-            $table->string('image_caption');
+            $table->string('image')->nullable();
+            $table->string('image_caption')->nullable();
+            $table->string('author')->nullable();
             $table->string('category');
             $table->timestamps();
         });

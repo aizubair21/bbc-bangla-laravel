@@ -30,38 +30,19 @@ require __DIR__.'/auth.php';
 
 
 
-//create method
-Route::get('/add-post', function() {
-    
-    $category = category::get();
-
-    return view('back_end.posts.add_new', compact('category'));
-})->name('post.add');
-
-Route::get('/add-category', function() {
-    return view('back_end.category.add');
-})->name('category.add');
-
-
-//show method
-Route::get('/post/edit', function($id) {
-
-    $category = category::get();
-    $post = post::where('id', $id)->get();
-
-    return view('back_end.posts.edit', compact('category','post'));
-    
-})->name('post_edit');
-
-
-//post store
-//store resource not working
-Route::post('/post/store',[postController::class, 'post_store'])->name('post.store');
-
-
 
 //post resource controller
 Route::resource('post',postController::class);
+//post update 
+Route::post('/post/{$id}/update', [postController::class, 'updated'])->name('post.update');
 
-//category 
+
+//category resource controller 
 Route::resource('category', categoryController::class);
+
+
+
+//test 
+Route::get('/test', function() {
+    return view('back_end.posts.test');
+});

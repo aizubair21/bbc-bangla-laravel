@@ -1,3 +1,4 @@
 @extends('back_end.app');
-@section('content')
+@section('content');
+    
 @endsection
