@@ -7,6 +7,12 @@
           <div class="container-fluid">
             <div class="row mb-2">
               <div class="col-sm-6">
+                @if(session('status'))
+                  <div class="alert alert-success alert-dismissible fade show" role="alert">
+                      {{ session('status') }}
+                      <button type="button" class="btn-close btn-sm" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>
+                @endif
                 <h1>Category</h1>
               </div>
               <div class="col-sm-6">
@@ -49,12 +55,16 @@
                           <td> {{ $item->name }}</td>
                           <td> {{ $item->slug }}</td>
                           <td> {{ $item->author_name }}</td>
-                          <td></td>
+                          <td> 
+                            {{ 
+                                $post->where('category',$item->name)->count();
+                            }}
+                          </td>
                           <td>
-                            <a href="#" class="btn btn-danger">
+                            <a href="{{ route('category.destroy', $item->id) }}" class="btn btn-danger">
                               <div class="fas fa-trash" ></div>
                             </a>
-                            <a href="#" class="btn btn-primary">
+                            <a href="{{ route('category.edit', $item->id) }}" class="btn btn-primary">
                               <div class="fas fa-pen"></div>
                             </a>
                           </td>
@@ -64,11 +74,10 @@
 
                       <tfoot>
                       <tr>
-                        <th>{{ $category->count()}}</th>
-                        <th>Browser</th>
-                        <th>Platform(s)</th>
-                        <th></th>
-                        <th>CSS grade</th>
+                        <th colspan="5">
+
+                        </th>
+                        <th> Total : {{ $category->count()}}</th>
                       </tr>
                       </tfoot>
 
