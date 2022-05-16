@@ -38,7 +38,7 @@ class categoryController extends Controller
         $category = new category();
         $category->name = $request->name;
         $category->slug = $request->slug;
-        $category->author = Auth::user()->id;
+        $category->author = Auth::id();
         $category->save();
         
         return redirect()->route('category.index')->with(['status'=>'New category added ! !']);
@@ -53,7 +53,7 @@ class categoryController extends Controller
 
 
     //show mehtod
-    public function show(Request $request, $id)
+    public function show(Request $request, category $category)
     {   
         // dd($request->old_name);
         // dd(post::where('category',$request->old_name)->get());
@@ -62,10 +62,10 @@ class categoryController extends Controller
             'slug'=>'required',
         ]);    
 
-        category::where('id',$id)->update([
+        $category->update([
             'name'=>$request->name,
             'slug' => $request->slug,
-            'author' => Auth::user()->id,
+            'author' => Auth::id(),
         ]);
 
         post::where('category',$request->old_name)->update([

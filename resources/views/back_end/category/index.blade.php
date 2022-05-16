@@ -36,6 +36,9 @@
                   </div>
                   <!-- /.card-header -->
                   <div class="card-body">
+                    @if($category->count() < 1 )
+                      <div class="alert alert-warning p-3 w-100 text-align-center">No Category Were Found !</div>
+                    @else 
                     <table id="example2" class="table table-bordered table-hover">
                       <thead>
                       <tr>
@@ -54,10 +57,10 @@
                           <td> {{ ++$key }}</td>
                           <td> {{ $item->name }}</td>
                           <td> {{ $item->slug }}</td>
-                          <td> {{ $item->author_name }}</td>
+                          <td> {{ $item->user->user_name }}</td>
                           <td> 
                             {{ 
-                                $post->where('category',$item->name)->count();
+                                $post->where('category',$item->id)->count();
                             }}
                           </td>
                           <td>
@@ -82,6 +85,7 @@
                       </tfoot>
 
                     </table>
+                    @endif
                   </div>
                   <!-- /.card-body -->
                 </div>

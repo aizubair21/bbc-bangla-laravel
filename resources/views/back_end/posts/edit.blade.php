@@ -40,7 +40,7 @@
                         <div class="mb-3">
                             <div class="section">
                                 <label class="form-label" for="post_image">Post Image :</label>
-                                <input type="file" name="image" id="post_image" class="form-input form-control">
+                                <input type="file" name="image" id="post_image" class="form-input form-control" required>
                             </div>
                             <div class="section" >
                                 <label class="form-label" for="image_caption">Imapge Caption :</label>

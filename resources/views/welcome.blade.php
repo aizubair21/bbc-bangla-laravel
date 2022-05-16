@@ -2,23 +2,24 @@
 
 @extends('front_end.app')
 @section('content')
-@foreach ($post as $posts)
-    
-<section id="top-news">
-    <div class="container">
+
+    <section id="top-news">
+        <div class="container">
+            <div class="alert alert-info w-100 p-3 mb-3 mt-3" style="font-size: 20px;">New Arrieved :</div>
             <div class="row">
                 <div class="col-sm-12 col-xm-12 col-md-12 col-lg-12">
                     <a href="#" class="top">
-                        <img class="col-sm-6 col-lg-6 com-xm-12" src="images/thumbnail.jpg" alt="">
+                        <img class="col-sm-6 col-lg-6 com-xm-12" src="images/{{ $latestPost->image }}" alt="$latestPost->image_caption">
                         <div class="col-sm-6 col-lg-6 col-xm-12">
-                            <h2>শিথীল লকডাউনে গণপরিবহন চলবে যেভাবে</h2>
-                            <p>বাংলাদেশে করোনাভাইরাসের উর্ধ্বমুখী সংক্রমণ ঠেকাতে চলমান কঠোর বিধিনিষেধ বা লকডাউন বুধবার মধ্যরাত থেকে শিথিল করা হয়েছে। এ সময়ে স্বাস্থ্যবিধি মেনে গণপরিবহন বা গরুর হাট পরিচালনা কতটা সম্ভব হবে?</p>
+                            <h2>{{$latestPost->title}}</h2>
+                            <p>{{ $latestPost->description }}</p>
                         </div>
                     </a>
                 </div>
             </div>
         </div>
     </section>
+    @foreach ($post as $posts)
     <section id="top-news-two">
         <div class="container">
             <div class="row">

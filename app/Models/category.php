@@ -12,11 +12,12 @@ class category extends Model
     //relation with posts
     public function posts()
     {
-        return $this->belongsToMany(post::class);
+        return $this->hasMany(post::class);
     }
 
     public function user()
     {
-        $this->belongsTo(user::class);
+        return $this->belongsTo(user::class, 'author');
     }
+
 }

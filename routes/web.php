@@ -22,7 +22,8 @@ use Symfony\Component\HttpFoundation\Request;
 
 Route::get('/', function () {
     $post = post::get();
-    return view('welcome', compact('post'));
+    $latestPost = Post::orderBy('created_at', 'desc')->first();
+        return view('welcome', compact('post','latestPost'));
 });
 
 Route::get('/dashboard', function () {

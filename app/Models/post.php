@@ -10,13 +10,13 @@ class post extends Model
     use HasFactory;
 
     //relation with category
-    public function category()
+    public function categories()
     {
-        return $this->hasOne(category::class);
+        return $this->belongsTo(category::class, 'category');
     }
 
     public function user()
     {
-        return $this->belongsTo(user::class);
+        return $this->belongsTo(user::class, 'author');
     }
 }

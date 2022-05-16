@@ -15,13 +15,11 @@ class testController extends Controller
 
     public function test(Request $rquest)
     {   
-        // // $post = post::where('author',1)->get();
         $post = Post::find(1)->get();
-        // // $post = Auth::user()->posts()->get();
-        // foreach ($post as $key => $value) {
-        //     dd($value->user_name);
-            
-        // }
+        foreach ($post as $key => $value) {
+            dd($value->categories->user);
+        }
+ //       dd($post);
         return view('back_end.posts.test', compact('post'));
     }
 }

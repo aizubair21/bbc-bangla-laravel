@@ -37,6 +37,9 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
+                @if($post->count() < 1 )
+                    <div class="alert alert-warning p-3 w-100 text-align-center">No Post Were Found !</div>
+                @else
                 <table id="example2" class="table table-bordered table-hover table-striped">
                   <thead>
                   <tr>
@@ -52,6 +55,7 @@
                   </thead>
 
                   <tbody>
+                  
                   @foreach ($post as $key => $item)
                   <input type="hidden" name="id" value="{{ $item->id}}">
                     <tr>
@@ -62,7 +66,7 @@
                         $item->description
                         
                         }}</td>
-                      <td> {{ $item->category }}</td>
+                      <td> {{ $item->categories->name }} </td>
                       <td>
                           {{
                             $item->user->user_name
@@ -93,12 +97,16 @@
 
                   <tfoot>
                   <tr>
-                    <th>Total Count : {{ $post->count() }}</th>
+                    <th>Total Count : 
+                      {{
+                        $post->count()
+                      }}
+                    </th>
                     <td colspan=""></td>
                   </tr>
                   </tfoot>
-
                 </table>
+                @endif
               </div>
               <!-- /.card-body -->
             </div>

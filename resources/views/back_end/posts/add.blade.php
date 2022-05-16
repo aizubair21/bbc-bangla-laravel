@@ -19,6 +19,9 @@
                 margin: 5px 0px;;
             }
         </style>
+            <div class="breadcrumb my-3">
+                Add Post
+            </div>
         <div class="container" style="padding:10px">
             
             <div class="row">
@@ -30,9 +33,12 @@
                             <button type="button" class="btn-close btn-sm" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                     @endif
-                    <div class="card">
-                       
+
+                    <div class="card mt-3">
                         <div class="card-body">
+                            @if($category->count() < 1)
+                                <div class="alert alert-warning w-100 p-3 text-align-center">No Category Found. <br> Please add altest one category to create post</div>
+                            @else
                             <form action="{{ route('post.store') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="section">
@@ -76,6 +82,7 @@
                                     <input type="submit" class="btn btn-primary pe-3" value="Add Post" style="float:right">
                                 </div>
                             </form>
+                            @endif
                         </div>
                     </div>
                 </div>
