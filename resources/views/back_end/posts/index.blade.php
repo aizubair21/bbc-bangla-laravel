@@ -44,6 +44,7 @@
                     <th>Title</th>
                     <th>Description</th>
                     <th>Category</th>
+                    <th>Created by</th>
                     <th>Image</th>
                     <th>Image Caption</th>
                     <th>Action</th>
@@ -62,6 +63,11 @@
                         
                         }}</td>
                       <td> {{ $item->category }}</td>
+                      <td>
+                          {{
+                            $item->user->user_name
+                          }}
+                      </td>
                       <td> 
                         <img height="50" width="50" src="images/{{ $item->image }}" alt="Not Found !">
                       </td>

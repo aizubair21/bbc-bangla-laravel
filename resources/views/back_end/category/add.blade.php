@@ -46,8 +46,8 @@
                                 Cancel
                             </a>
                             <button type="submit" class="btn btn-primary">
-                                <i class="rab fa-telegram-plane pe-2"></i>
-                                submit
+                                <i class="fab fa-telegram-plane pe-2"></i>
+                                Add Category
                             </button>
                         </div>
                     </form>

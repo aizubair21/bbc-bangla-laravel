@@ -23,11 +23,11 @@ class categoryController extends Controller
     //create method 
     public function create()
     {
-        return view('back_end.category.create');
+        return view('back_end.category.add');
     }
 
     //store method
-    public function store(Request $request,  $id)
+    public function store(Request $request)
     {
 
         $request->validate([
@@ -36,17 +36,18 @@ class categoryController extends Controller
         ]);
 
         $category = new category();
-        $category->title = $request->title;
-        $category->slug = $request->sluf;
+        $category->name = $request->name;
+        $category->slug = $request->slug;
+        $category->author = Auth::user()->id;
         $category->save();
         
-        return redirect()->route('category.index')->with(['status'=>'Successfull updated !']);
+        return redirect()->route('category.index')->with(['status'=>'New category added ! !']);
     }
 
     //update method
     public function update(Request $request, $id)
     {
-        
+        return 'update';
     }
 
 
@@ -64,14 +65,14 @@ class categoryController extends Controller
         category::where('id',$id)->update([
             'name'=>$request->name,
             'slug' => $request->slug,
-            'author_name' => $request->author_name,
+            'author' => Auth::user()->id,
         ]);
 
         post::where('category',$request->old_name)->update([
             'category'=>$request->name,
         ]);
 
-        return redirect()->route('category.index')->with(['status'=>'Suceefully Update !']);
+        return redirect()->route('category.index')->with(['status'=>'Suceefully Updated !']);
     }
 
     //edit method
@@ -84,7 +85,7 @@ class categoryController extends Controller
     //destroy method
     public function destroy($id)
     {
-        category::while('id', $id)->delete();
+        category::where('id', $id)->delete();
         return redirect()->route('category.index')->with(['status'=>'Successfuly Deleted !']);
     }
 }

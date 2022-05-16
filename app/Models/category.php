@@ -14,4 +14,9 @@ class category extends Model
     {
         return $this->belongsToMany(post::class);
     }
+
+    public function user()
+    {
+        $this->belongsTo(user::class);
+    }
 }

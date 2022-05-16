@@ -39,7 +39,7 @@
       <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
     </div>
     
-    @include('back_end.component.top_header')
+    {{-- @include('back_end.component.top_header') --}}
     @include('back_end.component.side_bar')
     <div class="content-wrapper">
       @yield('content')

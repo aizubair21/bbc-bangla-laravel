@@ -14,4 +14,9 @@ class post extends Model
     {
         return $this->hasOne(category::class);
     }
+
+    public function user()
+    {
+        return $this->belongsTo(user::class);
+    }
 }

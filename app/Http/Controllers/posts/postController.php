@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\category;
 use App\Models\post;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redis;
 
@@ -15,7 +16,6 @@ class postController extends Controller
     public function index()
     {
         $post = post::get();
-        //dd($post);
         return view('back_end.posts.index', compact('post'));
     }
 
@@ -36,7 +36,8 @@ class postController extends Controller
     //edit method
     public function edit(Request $request, $id)
     {   
-        $post = post::where('id',1)->get();
+        $post = post::where('id',$id)->get();
+        // dd($post);
         $category = category::get();
 
         return view('back_end.posts.edit', compact('post','category'));

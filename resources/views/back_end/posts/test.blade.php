@@ -13,8 +13,13 @@
                     </form>
                 
                 </div>
+                
             </div>
+            
         </div>
         <div class="col-4"></div>
+        @foreach($post as $item)
+            {{ $item->user->user_name }}
+        @endforeach
     </div>
 @endsection
