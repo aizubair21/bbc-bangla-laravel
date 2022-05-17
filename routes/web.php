@@ -32,12 +32,6 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
-
-
-
-
-
-
 //test 
 Route::get('/test',[testController::class, 'test']);
 
@@ -50,3 +44,6 @@ Route::post('/image_test', function(Request $request) {
         echo $_FILES['image']['error'];
       }
 })->name('image_test');
+
+//summernote test
+Route::view('/note', 'back_end.posts.note');

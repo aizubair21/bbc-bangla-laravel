@@ -12,7 +12,7 @@
             </div>
           @endif
           <div class="col-sm-6">
-            <h1>Posts</h1>
+            <h1>All Post</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -33,7 +33,11 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">All post</h3>
+                <div class="card-title">
+                  <div class="row">
+                    
+                  </div>
+                </div>
               </div>
               <!-- /.card-header -->
               <div class="card-body">

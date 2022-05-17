@@ -9,10 +9,10 @@
             <div class="row">
                 <div class="col-sm-12 col-xm-12 col-md-12 col-lg-12">
                     <a href="#" class="top">
-                        <img class="col-sm-6 col-lg-6 com-xm-12" src="images/{{ $latestPost->image }}" alt="$latestPost->image_caption">
+                        <img class="col-sm-6 col-lg-6 col-xm-12" src="images/{{ $latestPost->image }}" alt="$latestPost->image_caption">
                         <div class="col-sm-6 col-lg-6 col-xm-12">
-                            <h2>{{$latestPost->title}}</h2>
-                            <p>{{ $latestPost->description }}</p>
+                            <h2>{!! $latestPost->title !!}</h2>
+                            <div>{!! $latestPost->description !!}</div>
                         </div>
                     </a>
                 </div>
@@ -25,7 +25,7 @@
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-3 col-xm-12">
                     <a href="#">
-                        <img class="col-xm-4"  src="images/{{$posts->image}}" alt="BBC" class="col-xm-3">
+                        <img class="col-xm-4 w-100"  src="images/{{$posts->image}}" alt="BBC" class="col-xm-3">
                         <div class="col-sm-8"> 
                             <h2>বাংলাদেশে  এবার জেলা উপজেলার টিকাকেন্দ্রে উদগ্রীব মানুষের ভীড়</h2>
                             <span>২ ঘন্টা আগে</span>

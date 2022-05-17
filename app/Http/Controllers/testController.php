@@ -7,7 +7,8 @@ use App\Models\User;
 use App\Models\post;
 use App\Models\category;
 use Illuminate\Support\Facades\Auth;
-
+use SebastianBergmann\FileIterator\Factory;
+use Faker;
 
 class testController extends Controller
 {
@@ -16,10 +17,13 @@ class testController extends Controller
     public function test(Request $rquest)
     {   
         $post = Post::find(1)->get();
-        foreach ($post as $key => $value) {
-            dd($value->categories->user);
-        }
- //       dd($post);
+        // foreach ($post as $key => $value) {
+        //     dd($value->categories->user);
+        // }
+        //$faker = Faker\Factory::create();
+        //dd($faker->address);
+
+        
         return view('back_end.posts.test', compact('post'));
     }
 }
