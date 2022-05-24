@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="bootstrap-5.1.0-dist/css/bootstrap.min.css">
-    <script src="bootstrap-5.1.0-dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="css/default.css">
-    <link rel="stylesheet" href="css/theme.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/responsibe.css">
+    <link rel="stylesheet" href="/bootstrap-5.1.0-dist/css/bootstrap.min.css">
+    <script src="/bootstrap-5.1.0-dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="/css/default.css">
+    <link rel="stylesheet" href="/css/theme.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/responsibe.css">
+    @yield('link')
     <title>bbc-bangla</title>
 </head>
 <body>
@@ -44,6 +45,11 @@
         </div>
     </div>
 
-    @yield('content')
+    <div class="container">
+        @yield('content')
+    </div>
+
+
+    @yield('script')
 </body>
 </html>

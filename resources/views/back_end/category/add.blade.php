@@ -1,15 +1,14 @@
 @extends('back_end.app');
 @section('content')
 
-        @if (session('status'))
+        @if(session('status'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 {{ session('status') }}
-                <button type="button" class="btn-close btn-sm" data-bs-dismiss="alert" aria-label="Close"></button>
+                <button type="button" class="btn btn-close btn-sm" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         @endif
-    <div class="alert alert-info">Add Cat</div>
-    <div class="row">
-        <div class="col-3"></div>
+    <div class="alert alert-info p-3">Category</div>
+    <div class="row p-3">
         <div class="col-6">
             <div class="bg-primary text-white text-align-center p-3 font-middle">
                 Add New Category
@@ -51,6 +50,34 @@
                             </button>
                         </div>
                     </form>
+                </div>
+            </div> 
+        </div>
+        <div class="col-5" style="height: 80vh; overflow:scroll">
+            <div class="card">
+                <div class="card-body">
+                    <table class="table table-bordered">
+                        <tr>
+                            <td colspan="2">Total : </td>
+                            <td  style="txt-align:right">{{$categories->count()}}</td>
+                        </tr>
+                        <thead>
+                            <tr>
+                                <th>SL : </th>
+                                <th>Name : </th>
+                                <th>Action : </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($categories as $key => $category)
+                                <tr>
+                                    <td>{{++$key}}</td>
+                                    <td>{{$category->name}}</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                        
+                    </table>
                 </div>
             </div>
         </div>

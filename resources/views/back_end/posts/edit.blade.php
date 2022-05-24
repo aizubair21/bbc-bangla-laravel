@@ -53,15 +53,20 @@
                                 <textarea name="description" id="summernote" cols="30" rows="10">{{ $posts->description }}</textarea>
                             </div>
     
-                            <div class="mb-3">
-                                <div class="section mb-3">
-                                    <label class="form-label" for="post_image">Post Image :</label>
-                                    <input type="file" name="image" id="post_image" class="form-input form-control" required>
-                                </div>
-                                <div class="section mb-3" >
-                                    <label class="form-label" for="image_caption">Imapge Caption :</label>
-                                    <input type="text" name="caption" id="image_caption" class="form-control form-input" placeholder="This is lorem image">
-                                </div>
+                            <div class="mb-3 input-group">
+                               <div class="d-flex justify-content-between align-items-baseline">
+                                    <div class="section mb-3 ">
+                                        <label class="form-label" for="post_image">Post Image :</label>
+                                        <div class="d-flex justify-conent-between align-items-start">
+                                        
+                                            <input type="file" name="image" id="post_image" class="form-input form-control">
+                                        </div>
+                                    </div>
+                                    <div class="section mb-3 " >
+                                        <label class="form-label" for="image_caption">Imapge Caption :</label>
+                                        <input type="text" name="caption" id="image_caption" class="form-control form-input" placeholder="This is lorem image">
+                                    </div>
+                               </div>
     
                                 <div class="section mb-3">
                                     <label for="video" class="form-label"> Post Video :</label>
@@ -69,8 +74,11 @@
                                 </div>
                             </div>
     
-                            <div class="d-flex justify-content-between aign-items-baseline pt-10">
-                                <input type="submit" class="btn btn-primary pe-3" value="Update" style="float:right">
+                            <div class="d-flex justify-content-between aign-items-baseline pt-10 w-100">
+                                <button type="submit" class="btn btn-primary pe-3" style="float:right">
+                                    <i class="fab fa-telegram-plane pe-6">  </i>    
+                                    Update
+                                </button>
                             </div>
                         </form>
                         @endforeach
@@ -79,11 +87,22 @@
                </div>
            </div>
         <script>
-        $('#summernote').summernote({
-            placeholder: 'Hello Bootstrap 5',
-            tabsize: 2,
-            height: 100
-        });
+            //summernote plugins
+            $('#summernote').summernote({
+                placeholder: 'Your post conent here......',
+                tabsize: 2,
+                height: 400
+            });
+
+
+            //select image
+            function doImage() 
+            {   
+                var image = document.getElementById('post_image').value;
+                console.log( document.getElementById('old_image'));
+          
+            }
+            
         </script>
 
 

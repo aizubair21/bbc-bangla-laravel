@@ -1,38 +1,40 @@
 
-
 @extends('front_end.app')
 @section('content')
 
     <section id="top-news">
         <div class="container">
-            <div class="alert alert-info w-100 p-3 mb-3 mt-3" style="font-size: 20px;">New Arrieved :</div>
-            <div class="row">
-                <div class="col-sm-12 col-xm-12 col-md-12 col-lg-12">
-                    <a href="#" class="top">
-                        <img class="col-sm-6 col-lg-6 col-xm-12" src="images/{{ $latestPost->image }}" alt="$latestPost->image_caption">
-                        <div class="col-sm-6 col-lg-6 col-xm-12">
-                            <h2>{!! $latestPost->title !!}</h2>
-                            <div>{!! $latestPost->description !!}</div>
+                <a href="#" class="top" height="auto">
+                    <div class="latest_wrap">
+                        <img id="latest_image_id" src="images/{{ $latestPost->image }}" alt="$latestPost->image_caption">
+                        <div>
+                            <div style="height:100px; padding:8px overflow:hidden">
+                                {!!
+                                    \Illuminate\Support\Str::limit($latestPost->description, 500)
+                                !!}
+                            </div>
                         </div>
-                    </a>
-                </div>
-            </div>
+                    </div>
+                </a>
         </div>
     </section>
-    @foreach ($post as $posts)
+
+    @foreach ($posts as $item)
     <section id="top-news-two">
         <div class="container">
             <div class="row">
-                <div class="col-sm-12 col-md-12 col-lg-3 col-xm-12">
-                    <a href="#">
-                        <img class="col-xm-4 w-100"  src="images/{{$posts->image}}" alt="BBC" class="col-xm-3">
-                        <div class="col-sm-8"> 
-                            <h2>বাংলাদেশে  এবার জেলা উপজেলার টিকাকেন্দ্রে উদগ্রীব মানুষের ভীড়</h2>
-                            <span>২ ঘন্টা আগে</span>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-sm-12 col-md-12 col-lg-3">
+                @foreach ($allPost as $post)
+                    <div class="col-sm-12 col-md-12 col-lg-3 col-xm-12">
+                        <a href="#">
+                            <img width="150px" height="150px" class="col-xm-4 w-100"  src="images/{{$post->image}}" alt="BBC" class="col-xm-3">
+                            <div class="col-sm-8"> 
+                                <h2>{{ $item->title  }}</h2>
+                                <span>{{ $item->created_at}}</span>
+                            </div>
+                        </a>
+                    </div>
+                @endforeach 
+                {{-- <div class="col-sm-12 col-md-12 col-lg-3">
                     <a href="#" class="col-xm-12">
                         <img class="col-xm-4" src="images/topnews2.jpg" alt="BBC">
                         <div class="col-sm-8">
@@ -98,25 +100,28 @@
                         </div>
                     </a>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </section>
+<hr>
     <section id="corona-virus">
         <div class="container">
             <div class="common-heading">
                 <h2>করোনাভাইরাস</h2>
             </div>
             <div class="row">
-                <div class="col-sm-12 col-md-12 col-lg-3 col-xm-12">
-                    <a  href="#">
-                        <img class="col-xm-4" src="images/covid1.jpg" alt="BBC">
-                        <div class="col-sm-8">
-                            <h2>কভিডের কারণে শরীলে অক্সিজেন কমে গেলে যা করতে পারেন</h2>
-                            <span>২৩ জুন ২০২১</span>
+                @foreach ($covid as $posts)
+                    <div class="col-sm-12 col-md-12 col-lg-3 col-xm-12">
+                        <a  href="#">
+                            <img class="col-xm-4" width="150" height="200" src="images/{{ $posts->image }}" alt="BBC" class="col-xm-3">
+                            <div class="col-sm-8">
+                                <h2>{{ $posts->title }}</h2>
+                                <span>{{ $posts->created_at }}</span>
+                            </div>
+                        </a>
                     </div>
-                </a>
-            </div>
-            <div class="col-sm-12 col-md-12 col-lg-3 col-xm-12">
+                @endforeach
+                {{-- <div class="col-sm-12 col-md-12 col-lg-3 col-xm-12">
                     <a href="#"> 
                         <img class="col-xm-4" src="images/covid2.jpg" alt="BBC">
                         <div class="col-sm-8"> 
@@ -143,10 +148,11 @@
                         </div>
                     </a>
                 </div>
-                
+                 --}}
             </div>
         </div>
     </section>
+<hr>
     <section id="audio">
         <div class="container">
             <div class="common-heading">
@@ -236,6 +242,8 @@
             </div>
         </div>
     </section>
+<hr>
+
     <section id="letter">
         <div class="container">
             <div class="common-heading">
@@ -256,8 +264,9 @@
             <div class="common-heading">
                 <h2 > বিশেষ প্রতিবেধন </h2>
             </div>
+
             <a href="#"class="row">
-                <img class="col-sm-12 col-lg-6 col-xm-12" src="images/report.jpg" alt="">
+                <img class="col-sm-12 col-lg-6 col-xm-12" src="images/{{$report->image}}" alt="">
                 <div class="col-sm-12 col-lg-6 col-xm-12">
                     <h2> কোরবানির পশু বেচা কেনা অর্থনীতিতে যে কারণে গুরুত্বপূর্ণ  </h2>
                     <p>বাংলাদেশে করোনা ভাইরাসের সংক্রমণ েএবং মৃত্যু যখন ব্যাপক আকারে বেড়েই চলচে, তখন সরকার কিছুদিনের জন্য লকডাউন প্রত্যাহার করে নিয়েছেন । সরকারের তরফ ধেতে যুক্তি দেয়া হয়েছে, ঈদ-েউল-আদহায় পশু বেচা কেনা অর্থনীতির একটি খুটি । </p>
@@ -546,5 +555,5 @@
             <a href="#"> বাইরের লিংক সম্পর্কে বিবিসির দৃষ্টিভঙ্গি পড়ুন |</a>
         </div>
     </section>
-@endforeach
+    @endforeach
 @endsection

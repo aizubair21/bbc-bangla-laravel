@@ -79,13 +79,19 @@ class postController extends Controller
         post::where('id',$post)->update([
             'title'=>$request->title,
             'description'=>$request->description,
-            'image'=>$_FILES['image']['name'],
+            // 'image'=>$_FILES['image']['name'],
             'image_caption' => $request->caption,
             'category' => $request->category,
             'author' => Auth::id(),
         ]);
 
-        move_uploaded_file($_FILES["image"]["tmp_name"], public_path('images/'). basename($_FILES['image']['name']));
+        if ($request->image) {
+            # code...p
+            move_uploaded_file($_FILES["image"]["tmp_name"], public_path('images/'). basename($_FILES['image']['name']));
+            post::where('id',$post)->update([
+                'image'=>$_FILES['image']['name'],
+            ]);
+        }
 
         // $request->image->storeAs('images', );
         // storage/app/images/file.png
@@ -99,5 +105,12 @@ class postController extends Controller
     {   
         post::where('id', $id)->delete();
         return redirect()->back()->with(['status'=>'Successfuly Deleted !']);
+    }
+
+    //show method
+    public function show($id)
+    {   
+        $posts = Post::whrere('category', 1)->get();
+        return view('front_end.category.index',['posts'=>$posts]);
     }
 }

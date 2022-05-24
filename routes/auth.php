@@ -57,14 +57,27 @@ Route::middleware('auth')->group(function () {
                 ->name('logout');
 
     //post controller
-    Route::get('/post', [postController::class, 'index'])->name('post.index');
-    Route::get('/post/create', [postController::class, 'create'])->name('post.create');
-    Route::post('/post/store', [postController::class, 'store'])->name('post.store');
-    Route::post('/post/{id}/update',[postController::class, 'updated'])->name('post.update');
-    Route::get('/post/{id}/edit', [postController::class, 'edit'])->name('post.edit');
-    Route::get('post/{id}/destroy/', [postController::class, 'destroy'])->name('destroy');
+    Route::get('/posts', [postController::class, 'index'])
+                ->name('post.index');
+
+    Route::get('/post/create', [postController::class, 'create'])
+                ->name('post.create');
+
+    Route::post('/post/store', [postController::class, 'store'])
+                ->name('post.store');
+
+    Route::post('/post/{id}/update',[postController::class, 'updated'])
+                ->name('post.update');
+
+    Route::get('/post/{id}/edit', [postController::class, 'edit'])
+                ->name('post.edit');
+
+    Route::get('post/{id}/destroy/', [postController::class, 'destroy'])
+                ->name('destroy');
+
 
     //category resource controller 
     Route::resource('category', categoryController::class);
+    Route::get('category/{id}/delete', [categoryController::class, 'destroy'])->name("category.delete");
 
 });

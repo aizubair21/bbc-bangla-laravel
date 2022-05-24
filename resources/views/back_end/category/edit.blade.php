@@ -42,7 +42,11 @@
 
                             <div>
                                 <label for="author_name" class="form-label">Created By :</label>
-                                <input type="text" name="author_name" id="author_name" value="{{ $category->author_name ?? old('author_name') }}" class="form-input form-control @error('slgu') is-invalid @enderror">
+                                <select name="author_name" id="author_name" class="form-control form-select" required>
+                                    @foreach ($users as $user)
+                                        <option value="{{ $user->id }}" @if($user->id == $category->author) selected @endif> {{ $user->user_name }} </option>   
+                                    @endforeach
+                                </select>
                                 <div>
                                     @error('author_name')
                                         <strong class="text text-danger">{{ $message }}</strong>

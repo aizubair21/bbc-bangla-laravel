@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\post;
 use App\Models\category;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redis;
 
@@ -22,8 +23,9 @@ class categoryController extends Controller
 
     //create method 
     public function create()
-    {
-        return view('back_end.category.add');
+    {   
+        $categories = Category::get();
+        return view('back_end.category.add', compact('categories'));
     }
 
     //store method
@@ -31,8 +33,8 @@ class categoryController extends Controller
     {
 
         $request->validate([
-            'name' => 'required',
-            'slug' => 'required',
+            'name' => ['required','unique:categories'],
+            'slug' => ['required','unique:categories'],
         ]);
 
         $category = new category();
@@ -41,7 +43,7 @@ class categoryController extends Controller
         $category->author = Auth::id();
         $category->save();
         
-        return redirect()->route('category.index')->with(['status'=>'New category added ! !']);
+        return redirect()->back()->with(['status'=>'New category added ! !']);
     }
 
     //update method
@@ -58,8 +60,8 @@ class categoryController extends Controller
         // dd($request->old_name);
         // dd(post::where('category',$request->old_name)->get());
        $request->validate([
-            'name'=>'required',
-            'slug'=>'required',
+            'name'=>['required','unique:categories'],
+            'slug'=>['required','unique:categories'],
         ]);    
 
         $category->update([
@@ -68,9 +70,9 @@ class categoryController extends Controller
             'author' => Auth::id(),
         ]);
 
-        post::where('category',$request->old_name)->update([
-            'category'=>$request->name,
-        ]);
+        // post::where('category',$request->old_name)->update([
+        //     'category'=>$request->name,
+        // ]);
 
         return redirect()->route('category.index')->with(['status'=>'Suceefully Updated !']);
     }
@@ -78,14 +80,15 @@ class categoryController extends Controller
     //edit method
     public function edit(Category $category)
     {   
+        $users = User::get();
         //dd($category->id);
-        return view('back_end.category.edit',['category'=>$category]);
+        return view('back_end.category.edit',['category'=>$category, 'users'=>$users]);
     }
 
     //destroy method
     public function destroy($id)
     {
-        category::where('id', $id)->delete();
+        Category::where('id', $id)->delete();
         return redirect()->route('category.index')->with(['status'=>'Successfuly Deleted !']);
     }
 }

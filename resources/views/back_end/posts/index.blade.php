@@ -49,7 +49,6 @@
                   <tr>
                     <th>Sl </th>
                     <th>Title</th>
-                    <th>Description</th>
                     <th>Category</th>
                     <th>Created by</th>
                     <th>Image</th>
@@ -65,32 +64,27 @@
                     <tr>
                       <td> {{ ++$key }}</td>
                       <td class="p-2"> {{ $item->title }}</td>
-                      <td class="p-2"> {{ 
-                        
-                        $item->description
-                        
-                        }}</td>
-                      <td> {{ $item->categories->name }} </td>
+                      <td> {{ $item->categories->name ?? 'Uncategory' }} </td>
                       <td>
                           {{
                             $item->user->user_name
                           }}
                       </td>
                       <td> 
-                        <img height="50" width="50" src="images/{{ $item->image }}" alt="Not Found !">
+                        <img height="40" width="40" src="images/{{ $item->image }}" alt="Not Found !">
                       </td>
                       <td> {{ $item->image_caption }}</td>
                       <td>
-                       <div class="d-flex justify-content-evenly align-items-center">
+                       <div class="d-flex justify-content-between align-items-center">
                           {{-- <form action="{{ route('post.destroy', $item->id) }}" style="margin: 0">
                             @csrf
                               <button type="submit" class="btn btn-danger"><i class="fas fa-trash" ></i></button>
                            </form> --}}
-                          <a href="{{ route('destroy', $item->id) }}" class="btn btn-danger">
+                          <a href="{{ route('destroy', $item->id) }}" class="btn btn-danger btn-sm">
                             <i class="fas fa-trash"></i>
                           </a>
                           
-                          <a href=" {{ route('post.edit', $item->id) }}" class="btn btn-primary">
+                          <a href=" {{ route('post.edit', $item->id) }}" class="btn btn-primary btn-sm">
                             <i class="fas fa-pen"></i>
                           </a>
                        </div>

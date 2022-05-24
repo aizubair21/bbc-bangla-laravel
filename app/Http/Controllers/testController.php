@@ -16,14 +16,14 @@ class testController extends Controller
 
     public function test(Request $rquest)
     {   
-        $post = Post::find(1)->get();
-        // foreach ($post as $key => $value) {
-        //     dd($value->categories->user);
-        // }
-        //$faker = Faker\Factory::create();
-        //dd($faker->address);
-
-        
-        return view('back_end.posts.test', compact('post'));
+       $posts = Post::where('category',13)->get();
+       // $faker = Faker\Factory::create();
+       // dd($faker->address);
+       $str = "a qick brown fox jumps over the lazy dogs.a qick brown fox jumps over the lazy dogs.a qick brown fox jumps over the lazy dogs.a qick brown fox jumps over the lazy dogs." ;
+       while (strlen($str) == 20) {
+           dd(strlen($str));
+    
+       }
+      //return view('back_end.posts.test', compact('post'));
     }
 }

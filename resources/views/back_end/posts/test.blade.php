@@ -8,7 +8,7 @@
                     <form action="{{ route('image_test') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <label for="image">Upload Your Image :</label>
-                        <input type="file" name="image" id="image" class=" form-control"><br>
+                        <input type="file" name="image" id="image" class=" form-control" value="{{ $latestPost->image }}"><br>
                         <button type="submit">Submit</button>
                     </form>
                 
@@ -18,8 +18,8 @@
             
         </div>
         <div class="col-4"></div>
-        @foreach($post as $item)
+        {{-- @foreach($post as $item)
             {{ $item->user->user_name }}
-        @endforeach
+        @endforeach --}}
     </div>
 @endsection

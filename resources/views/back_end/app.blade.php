@@ -8,8 +8,8 @@
   {{-- bootstrap-5 --}}
   <!-- CSS only -->
 
-  <link rel="stylesheet" href="bootstrap-5.1.0-dist/css/bootstrap.min.css">
-  <script src="bootstrap-5.1.0-dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="/bootstrap-5.1.0-dist/css/bootstrap.min.css">
+  <script src="/bootstrap-5.1.0-dist/js/bootstrap.bundle.min.js"></script>
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
@@ -36,7 +36,7 @@
   
     <!-- Preloader -->
     <div class="preloader flex-column justify-content-center align-items-center">
-      <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+      <img class="animation__shake" src="/admin_lte/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
     </div>
     
     {{-- @include('back_end.component.top_header') --}}

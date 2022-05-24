@@ -1,6 +1,6 @@
 @extends('back_end.app');
 @section('content')
-    <div class="alert alert-info">All Cat</div>
+    <div class="alert alert-info">Category</div>
     <div >
         <!-- Content Header (Page header) -->
         <section class="content-header">
@@ -58,13 +58,13 @@
                           <td> {{ $item->name }}</td>
                           <td> {{ $item->slug }}</td>
                           <td> {{ $item->user->user_name }}</td>
-                          <td> 
+                          <td> P
                             {{ 
                                 $post->where('category',$item->id)->count();
                             }}
                           </td>
                           <td>
-                            <a href="{{ route('category.destroy', $item->id) }}" class="btn btn-danger">
+                            <a href="{{ route('category.delete', $item->id) }}" class="btn btn-danger">
                               <div class="fas fa-trash" ></div>
                             </a>
                             <a href="{{ route('category.edit', $item->id) }}" class="btn btn-primary">
